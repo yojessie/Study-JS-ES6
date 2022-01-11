@@ -38,3 +38,22 @@ button.addEventListener('click', function(){
   // setTimeout 실행함수에 들어간 this가 일반 함수에서 실행되어서 window가 되기 때문에,
   // 한단계 바깥의 this가 가질 수 있는 값으로 갖게 하기 위해서 arrow function을 사용함
 })
+
+
+
+
+
+
+// 변수 연습문제
+
+// 1. 1초마다 1 ~ 5 숫자가 차례대로 나오게 하기
+// 잘못된 코드
+for (var i = 1; i < 6; i++) { 
+  setTimeout(function() { console.log(i); }, i * 1000 ); 
+}
+
+// var은 함수 안에 있지 않는한 전역변수라 조건문이 setTimeout과 별개로 먼저 실행되어버려, 최종값만 i 변수에 남게된다.
+// 따라서 괄호 범위에서 실행되는 let으로 변수를 선언해주어, setTimeout이 필요할떄 범위 내에있는 let 변수를 사용할 수 있게 바꿨다.
+for (let i = 1; i < 6; i++) { 
+  setTimeout(function() { console.log(i); }, i * 1000 ); 
+}
