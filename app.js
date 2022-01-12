@@ -48,12 +48,35 @@ button.addEventListener('click', function(){
 
 // 1. 1초마다 1 ~ 5 숫자가 차례대로 나오게 하기
 // 잘못된 코드
-for (var i = 1; i < 6; i++) { 
-  setTimeout(function() { console.log(i); }, i * 1000 ); 
-}
+// for (var i = 1; i < 6; i++) { 
+//   setTimeout(function() { console.log(i); }, i * 1000 ); 
+// }
 
 // var은 함수 안에 있지 않는한 전역변수라 조건문이 setTimeout과 별개로 먼저 실행되어버려, 최종값만 i 변수에 남게된다.
 // 따라서 괄호 범위에서 실행되는 let으로 변수를 선언해주어, setTimeout이 필요할떄 범위 내에있는 let 변수를 사용할 수 있게 바꿨다.
 for (let i = 1; i < 6; i++) { 
   setTimeout(function() { console.log(i); }, i * 1000 ); 
 }
+
+
+
+
+
+
+// 문자열 다루기 Template literals / tagged literals
+// 1. 단어 순서를 바꾸는 해체분석기 제작하기, 0개인 경우 다팔렸다고 표시하기
+// 문자 데이터를 조작하기 좋은 방법
+const pants = 20;
+const socks = 0;
+`바지${pants} 양말${socks}`
+
+function 해체분석기(string, value1, value2) {
+  console.log(string[0] + value2 + string[1] + value1);
+
+  if (value2 == 0) {
+    value2 = ' 다 팔렸어요';
+    console.log(string[0] + value2 + string[1] + value1);
+  }
+}
+
+해체분석기`바지${pants} 양말${socks}`
