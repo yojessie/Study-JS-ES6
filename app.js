@@ -54,9 +54,9 @@ button.addEventListener('click', function(){
 
 // var은 함수 안에 있지 않는한 전역변수라 조건문이 setTimeout과 별개로 먼저 실행되어버려, 최종값만 i 변수에 남게된다.
 // 따라서 괄호 범위에서 실행되는 let으로 변수를 선언해주어, setTimeout이 필요할떄 범위 내에있는 let 변수를 사용할 수 있게 바꿨다.
-for (let i = 1; i < 6; i++) { 
-  setTimeout(function() { console.log(i); }, i * 1000 ); 
-}
+// for (let i = 1; i < 6; i++) { 
+//   setTimeout(function() { console.log(i); }, i * 1000 ); 
+// }
 
 
 
@@ -80,3 +80,38 @@ function 해체분석기(string, value1, value2) {
 }
 
 해체분석기`바지${pants} 양말${socks}`
+
+
+
+
+
+
+
+// Spread operator & Rest parameter 연습문제
+// 파라미터를 array 자료형으로 만들어주는 어레이() 함수 만들기
+function 어레이(...parameters){
+  return parameters;
+}
+var newArray = 어레이(1,2,3,4,5);
+console.log(newArray); 
+
+
+
+
+// 어레이 자료를 파라미터값으로 활용해서 최댓값을 구해주는 함수 만들기
+function maxNum(...arguments) {
+  console.log(Math.max(...arguments));
+}
+var numbers = [2,3,4,5,6,1,3,2,5,5,4,6,7];
+maxNum(...numbers);
+
+
+
+
+
+// 글자를 알파벳 순으로 정렬해주는 함수 만들기
+function 정렬(...argu){
+  console.log(argu.sort());
+}
+const word = 'bear';
+정렬(...word); 
