@@ -115,3 +115,39 @@ function 정렬(...argu){
 }
 const word = 'bear';
 정렬(...word); 
+
+
+
+
+// 데이터마이닝 기능 만들기
+function count(word) {
+  let countWords = {};
+  [...word].forEach(function(i){
+    if (countWords[i] > 0) {
+      countWords[i] = countWords[i] + 1;
+    } else {
+      countWords[i] = 1;
+    }
+  });
+  console.log(countWords);
+}
+
+count('aacbbb')
+
+
+
+
+// constructor 연습
+function ProductList(name, price) {
+  this.name = name;
+  this.price = price;
+  this.tax = function() {
+    return price + (price * 0.1);
+  }
+};
+
+let product1 = new ProductList('Shirts', 50000);
+let product2 = new ProductList('Pants', 65000);
+
+console.log(product1.tax());
+console.log(product2.tax());
