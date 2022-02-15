@@ -151,3 +151,81 @@ let product2 = new ProductList('Pants', 65000);
 
 console.log(product1.tax());
 console.log(product2.tax());
+
+
+
+
+
+// class, extends 연습
+class Dog {
+  constructor(type, color) {
+      this.type = type;
+      this.color = color;
+  }
+}
+
+class Cat extends Dog {
+  constructor(type, color, age) {
+      super(type, color);
+      this.age = age;
+  }
+  nextYear() {
+      console.log(this.age + 1);
+  }
+}
+
+const dog1 = new Dog('말티즈', 'white');
+const dog2 = new Dog('진돗개', 'brown');
+const cat1 = new Cat('코숏', 'white', 5);
+const cat2 = new Cat('러시안블루', 'brown', 2);
+
+
+
+
+
+// getter, setter 연습 1
+class Unit {
+  constructor() {
+      this.strenth = 5;
+      this.HP = 100;
+  }
+  get battlePoint() {
+      return this.strenth + this.HP;
+  }
+  set heal(healPoint) {
+      this.HP = this.HP + healPoint;
+  }
+}
+
+const healer = new Unit;
+
+console.log(healer.battlePoint);
+
+healer.heal = 50;
+console.log(healer.HP);
+
+
+
+
+
+// 짝수,홀수를 구분해 array에 저장하고 sort 해주는 함수 만들기
+const data = {
+  odd : [],
+  even : [],
+  setData : function(...item) {
+      item.forEach(item => {
+          if (item % 2 == 0) {
+              this.even.push(item);
+          } else {
+              this.odd.push(item);
+          }
+      })
+  },
+  sortData : function() {
+      return [...this.odd, ...this.even].sort();
+  }
+}
+
+data.setData(2,4,5,1,6,3);
+console.log(data);
+console.log(data.sortData());
